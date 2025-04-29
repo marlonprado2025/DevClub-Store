@@ -5,5 +5,18 @@ const dots = document.querySelectorAll(".dot")
 const numberIndicators = document.querySelector(".numbers")
 const list = document.querySelector(".list")
 
-let active = 0
+let active = 0;
 const total = items.length
+let timer;
+
+function update(direction){
+    document.querySelector('.item.active').classList.remove('active')
+    document.querySelector('.dot.active').classList.remove('active')
+}
+
+prevButton.addEventListener('click', function(){
+   update(-1)
+})
+nextButton.addEventListener('click', function(){
+    update(1)
+})
