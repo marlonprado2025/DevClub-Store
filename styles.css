@@ -32,18 +32,18 @@ header {
   text-shadow: 0 0 10px #00f7ffc8;
 }
 
-header nav ul {
+header nav {
   display: flex;
   gap: 50px;
 }
 
-header nav ul li {
+header nav a {
   cursor: pointer;
   position: relative;
   padding: 5px 0;
 }
 
-header nav ul li::after {
+header nav a::after {
   content: "";
   position: absolute;
   left: 0;
@@ -54,10 +54,16 @@ header nav ul li::after {
   transition: width 0.4s ease;
 }
 
-header nav ul li:hover::after {
+header nav a:hover::after {
   width: 100%;
 }
-
+header nav a:hover {
+  opacity: 0.5;
+}
+nav a {
+  text-decoration: none; /* Remove o sublinhado */
+  color: inherit;
+}
 .container {
   height: 100vh;
   position: relative;
@@ -71,11 +77,7 @@ header nav ul li:hover::after {
   width: 500px;
   height: 500px;
   border-radius: 50%;
-  background: radial-gradient(
-    circle,
-    rgba(0, 247, 255, 0.333) 0%,
-    rgba(15, 15, 30, 0) 70%
-  );
+  background: radial-gradient(circle, rgba(0, 247, 255, 0.333) 0%, rgba(15, 15, 30, 0) 70%);
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -110,10 +112,14 @@ header nav ul li:hover::after {
   justify-content: center;
   align-items: center;
   opacity: 0;
+                                /*   ANIMAÇÃO   */
+  transform: translateX(100vw);
+  transition:transform 0.7s ease-in-out, opacity 0.7s ease-in-out ;
 }
 
 .active {
   opacity: 1;
+  transform: translateX(0);
 }
 
 .products-img {
@@ -130,8 +136,17 @@ header nav ul li:hover::after {
   max-width: 80%;
   max-height: 60%;
   filter: drop-shadow(0 0 30px rgba(0, 247, 255, 0.3));
-}
 
+                                /*   ANIMAÇÃO   */
+ transform: translateX(400px);
+ opacity: 0;
+ transition: transform 0.6s ease, opacity 0.6s ease;
+ transition-delay: 1.2s;
+}
+.active .products-img img {
+  transform: translateX(0);
+  opacity: 1;
+}
 .content {
   width: 55%;
   padding-right: 80px;
@@ -140,6 +155,15 @@ header nav ul li:hover::after {
   justify-content: center;
   z-index: 2;
   flex-direction: column;
+                                    /*   ANIMAÇÃO   */
+ transform: translateX(400px);
+ opacity: 0;
+ transition: transform 0.6s ease, opacity 0.6s ease;
+ transition-delay: 0.5s;
+}
+.active .content{
+  transform: translateX(0);
+  opacity: 1;
 }
 
 .product-tag {
@@ -154,9 +178,19 @@ header nav ul li:hover::after {
 .product-name {
   font-size: 4rem;
   font-family: "Orbitron", sans-serif;
-  line-height: 1.1;
-  margin-bottom: 2px;
+  line-height: 1.5;
+  margin-bottom: 3px;
+                                 /*   ANIMAÇÃO   */
+ transform: translateX(400px);
+ opacity: 0;
+ transition: transform 0.6s ease, opacity 0.6s ease;
+ transition-delay: 0.6s;
 }
+.active .product-name {
+  transform: translateX(0);
+  opacity: 1;
+}
+
 
 .descripition {
   font-size: 1.1rem;
@@ -164,6 +198,15 @@ header nav ul li:hover::after {
   line-height: 1.6;
   margin-bottom: 30px;
   max-width: 600px;
+                                   /*   ANIMAÇÃO   */
+ transform: translateX(400px);
+ opacity: 0;
+ transition: transform 0.6s ease, opacity 0.6s ease;
+ transition-delay: 0.7s;
+}
+.active .descripition{
+  transform: translateX(0);
+  opacity: 1;
 }
 
 .btn {
@@ -175,6 +218,15 @@ header nav ul li:hover::after {
   font-weight: 600;
   font-size: 1rem;
   cursor: pointer;
+                                    /*   ANIMAÇÃO   */
+ transform: translateX(400px);
+ opacity: 0;
+ transition: transform 0.6s ease, opacity 0.6s ease;
+ transition-delay: 0.8s;
+}
+.active .btn{
+  transform: translateX(0);
+  opacity: 1;
 }
 
 .btn:hover {
