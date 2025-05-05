@@ -3,7 +3,7 @@
 <h3>
 📖 Sobre o Projeto
 </h3>
-<h4>O Store Project é uma aplicação web front-end em desenvolvimento que simula uma loja virtual. O objetivo é criar uma interface amigável e responsiva para exibir produtos, com um menu de navegação contendo as seções Home,
+<h4>O DevClub Store é uma aplicação web front-end em desenvolvimento que simula uma loja virtual. O objetivo é criar uma interface amigável e responsiva para exibir produtos, com um menu de navegação contendo as seções Home,
   Produtos e Contatos. Atualmente, o projeto está focado exclusivamente no front-end, com HTML, CSS e, opcionalmente, JavaScript para interatividade.
 Este projeto está em fase inicial de desenvolvimento, com melhorias e funcionalidades adicionais planejadas, como integração com back-end e carrinho de compras.
 </h4>
