@@ -68,9 +68,10 @@ header nav a::after {
   left: 0; /* Alinha a linha à esquerda */
   bottom: 0; /* Posiciona a linha na parte inferior do link */
   width: 0px; /* Inicia com largura zero (invisível) */
-  height: 2px; /* Define a espessura da linha como 2px */
+  height: 2.5px; /* Define a espessura da linha como 2px */
   background-color: #00f7ff; /* Define a cor da linha como ciano */
   transition: width 0.4s ease; /* Anima a largura da linha em 0.4s com easing suave */
+  box-shadow:0 0 10px rgba(0, 247, 255, 0.8);
 }
 
 /* Estiliza a linha ao passar o mouse sobre o link */
@@ -80,7 +81,8 @@ header nav a:hover::after {
 
 /* Reduz a opacidade do link ao passar o mouse */
 header nav a:hover {
-  opacity: 0.5; /* Define 50% de opacidade no hover */
+  opacity: 0.8; /* Define 50% de opacidade no hover */
+  color: rgb(0, 247, 255, 1.5);
 }
 
 /* Remove decoração padrão dos links e herda a cor */
@@ -310,8 +312,38 @@ nav a {
 /* Estiliza os indicadores do carrossel */
 .indicators {
   position: absolute; /* Posiciona em relação ao contêiner pai */
-  bottom: 40px; /* Posiciona 40px acima da borda inferior */
+  bottom: 20px; /* Posiciona 40px acima da borda inferior */
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex; /* Usa flexbox para organizar os indicadores */
+  flex-direction: column; /* Organiza os indicadores em coluna */
+  align-items: center; /* Centraliza verticalmente */
+  gap: 10px; /* Adiciona um espaçamento de 10px entre os indicadores */
+  z-index: 5; /* Coloca acima de outros elementos */
 }
+.numbers{
+font-family: "orbitron", sans-serif;
+font-size: 2.5rem;
+font-weight: 800;
+color: rgba(255, 255, 255, 0.2);
+}
+.dots {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+.dot {
+  width: 20px;
+  height:2px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 2px;
+}
+.dots .active {
+  color: rgba(0, 247, 255, 0.5);
+  box-shadow:0 0 10px rgba(0, 247, 255, 0.8);
+}
+
+
 
 /* ////////  RESPONSIVIDADE   */
 /* Ajusta o layout para telas até 800px (celulares e tablets pequenos) */
@@ -331,16 +363,17 @@ nav a {
     margin-bottom: 40px;
   }
   .item {
-    width: 90%;
+    width: 80%;
     height: auto;
     display: flex;
     flex-direction: column;
   }
   .item .active {
-    width: 90%;
+    width: 80%;
     display: flex;
     flex-direction: column;
     margin: 0;
+    margin-top: 100px;
   }
   .products-img {
     margin-top: 90px;
@@ -365,7 +398,7 @@ nav a {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 80%;
+    height: 40%;
   }
   .arrows {
     display: none;
