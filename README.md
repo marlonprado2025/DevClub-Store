@@ -36,4 +36,5 @@ Navegador para testes de responsividade.
 - Implementar interatividade com JavaScript (ex.: filtro de produtos, menu hamburguer).<br>
 - Planejar integração com back-end para funcionalidades como carrinho de compras e autenticação.<br>
 </h4><br>
+<img src="https://github.com/marlonprado2025/DevClub-Store/blob/main/img/Readme.png">
 <p>Nota: Este é um projeto em andamento, e novas funcionalidades serão adicionadas ao longo do tempo. Acompanhe o repositório para atualizações!</p>
