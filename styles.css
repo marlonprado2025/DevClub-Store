@@ -1,338 +1,468 @@
+/* Reseta margens, preenchimentos e define configurações globais */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  list-style: none;
-  font-family: "Montserrat", sans-serif;
+  margin: 0; /* Remove margens padrão de todos os elementos */
+  padding: 0; /* Remove preenchimentos padrão de todos os elementos */
+  box-sizing: border-box; /* Inclui padding e border no cálculo de largura/altura */
+  list-style: none; /* Remove marcadores de listas (ex.: bullets de <ul>) */
+  font-family: "Montserrat", sans-serif; /* Define a fonte padrão como Montserrat */
 }
 
+/* Estiliza o corpo da página */
 body {
-  background-color: #0f0f1e;
-  color: #fff;
-  font-size: 20px;
-  overflow: none;
+  background-color: #0f0f1e; /* Define um fundo azul escuro quase preto */
+  color: #fff; /* Define a cor do texto como branco */
+  font-size: 20px; /* Define o tamanho da fonte padrão como 20px */
+  overflow: none; /* !Erro: 'none' não é válido para 'overflow'. Provavelmente deveria ser 'hidden' para evitar barras de rolagem */
 }
 
+/* Estiliza o cabeçalho */
 header {
-  width: 90vw;
-  position: fixed;
-  top: 0;
-  padding: 20px 50px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  z-index: 3;
+  width: 90vw; /* Define a largura como 90% da largura da viewport */
+  position: fixed; /* Fixa o cabeçalho no topo da página */
+  top: 0; /* Alinha o cabeçalho no topo */
+  padding: 20px 50px; /* Adiciona 20px de padding vertical e 50px horizontal */
+  display: flex; /* Usa flexbox para organizar os itens internamente */
+  justify-content: space-between; /* Espaça os itens (logo e nav) entre si */
+  align-items: center; /* Alinha os itens verticalmente ao centro */
+  z-index: 3; /* Garante que o cabeçalho fique acima de outros elementos */
 }
 
+/* Estiliza a classe do logo */
 .logo {
-  font-weight: 900;
-  font-family: "Orbitron", sans-serif;
-  font-size: 3rem;
-  color: #00f7ff;
-  text-shadow: 0 0 10px #00f7ffc8;
+  font-weight: 900; /* Define a fonte como extremamente negrito */
+  font-family: "Orbitron", sans-serif; /* Usa a fonte Orbitron, com estilo futurista */
+  font-size: 3rem; /* Define o tamanho da fonte como 3 vezes o tamanho base (48px em navegadores padrão) */
+  color: #00f7ff; /* Define a cor como ciano brilhante */
+  text-shadow: 0 0 10px #00f7ffc8; /* Adiciona uma sombra de texto com ciano e leve transparência */
+  animation: pulse2 5s infinite; /* Aplica a animação 'pulse2' com duração de 5s em loop infinito */
 }
 
+/* Define a animação do logo */
+@keyframes pulse2 {
+  0% {
+    opacity: 0.3; /* Inicia com 30% de opacidade */
+    transform: translate(-20%, -40%) scale(0.8); /* Move o logo 20% para a esquerda, 40% para cima e reduz o tamanho em 80% */
+  }
+  100% {
+    opacity: 1; /* Termina com opacidade total */
+  }
+}
+
+/* Estiliza a navegação dentro do cabeçalho */
 header nav {
-  display: flex;
-  gap: 50px;
+  display: flex; /* Usa flexbox para alinhar os links horizontalmente */
+  gap: 50px; /* Adiciona 50px de espaço entre os links */
 }
 
+/* Estiliza os links da navegação */
 header nav a {
-  cursor: pointer;
-  position: relative;
-  padding: 5px 0;
+  cursor: pointer; /* Define o cursor como ponteiro ao passar sobre o link */
+  position: relative; /* Permite posicionar o pseudo-elemento ::after em relação ao link */
+  padding: 5px 0; /* Adiciona 5px de padding vertical */
 }
 
+/* Cria uma linha animada abaixo dos links */
 header nav a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 0px;
-  height: 2px;
-  background-color: #00f7ff;
-  transition: width 0.4s ease;
+  content: ""; /* Cria um pseudo-elemento vazio */
+  position: absolute; /* Posiciona a linha em relação ao link */
+  left: 0; /* Alinha a linha à esquerda */
+  bottom: 0; /* Posiciona a linha na parte inferior do link */
+  width: 0px; /* Inicia com largura zero (invisível) */
+  height: 2px; /* Define a espessura da linha como 2px */
+  background-color: #00f7ff; /* Define a cor da linha como ciano */
+  transition: width 0.4s ease; /* Anima a largura da linha em 0.4s com easing suave */
 }
 
+/* Estiliza a linha ao passar o mouse sobre o link */
 header nav a:hover::after {
-  width: 100%;
+  width: 100%; /* Expande a linha para 100% da largura do link */
 }
+
+/* Reduz a opacidade do link ao passar o mouse */
 header nav a:hover {
-  opacity: 0.5;
+  opacity: 0.5; /* Define 50% de opacidade no hover */
 }
+
+/* Remove decoração padrão dos links e herda a cor */
 nav a {
-  text-decoration: none; /* Remove o sublinhado */
-  color: inherit;
+  text-decoration: none; /* Remove o sublinhado padrão dos links */
+  color: inherit; /* Herda a cor do elemento pai (branco, definido em 'body') */
 }
+
+/* Estiliza o contêiner principal */
 .container {
-  height: 100vh;
-  position: relative;
-  background: linear-gradient(135deg, #0d0d1b 0%, #9e9eec8d 100%);
-  overflow: hidden;
+  height: 100vh; /* Ocupa 100% da altura da viewport */
+  position: relative; /* Permite posicionar elementos filhos absolutamente */
+  background: linear-gradient(135deg, #0d0d1b 0%, #9e9eec8d 100%); /* Aplica um gradiente diagonal de azul escuro para roxo claro com transparência */
+  overflow: hidden; /* Oculta qualquer conteúdo que ultrapasse os limites */
 }
 
+/* Cria um efeito de fundo circular difuso */
 .container::before {
-  content: "";
-  position: absolute;
-  width: 500px;
-  height: 500px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(0, 247, 255, 0.333) 0%, rgba(15, 15, 30, 0) 70%);
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  filter: blur(50px);
-  z-index: 1;
-  animation: pulse 2s infinite;
+  content: ""; /* Cria um pseudo-elemento vazio */
+  position: absolute; /* Posiciona o círculo em relação ao contêiner */
+  width: 500px; /* Define a largura do círculo */
+  height: 500px; /* Define a altura do círculo */
+  border-radius: 50%; /* Transforma o elemento em um círculo */
+  background: radial-gradient(circle, rgba(0, 247, 255, 0.333) 0%, rgba(15, 15, 30, 0) 70%); /* Aplica um gradiente radial de ciano translúcido para transparente */
+  top: 50%; /* Centraliza verticalmente */
+  left: 50%; /* Centraliza horizontalmente */
+  transform: translate(-50%, -50%); /* Ajusta a posição para centralizar perfeitamente */
+  filter: blur(50px); /* Aplica um desfoque de 50px para efeito suave */
+  z-index: 1; /* Coloca o círculo atrás dos elementos principais */
+  animation: pulse 2s infinite; /* Aplica a animação 'pulse' com duração de 2s em loop */
 }
 
+/* Define a animação do círculo de fundo */
 @keyframes pulse {
   0% {
-    opacity: 0.5;
-    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 0.5; /* Inicia com 50% de opacidade */
+    transform: translate(-50%, -50%) scale(0.8); /* Centraliza e  /* Reduz o tamanho para 80% */
   }
-
   100% {
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1.5);
+    opacity: 1; /* Termina com opacidade total */
+    transform: translate(-50%, -50%) scale(1.5); /* Aumenta o tamanho para 150% */
   }
 }
 
+/* Estiliza a lista de itens (provavelmente para o carrossel) */
 .list {
-  width: 80%;
-  height: 100%;
-  margin: 0 auto;
-  position: relative;
+  width: 80%; /* Define a largura como 80% do contêiner pai */
+  height: 100%; /* Ocupa 100% da altura do contêiner */
+  margin: 0 auto; /* Centraliza horizontalmente */
+  position: relative; /* Permite posicionar os itens absolutamente */
 }
 
+/* Estiliza cada item do carrossel */
 .item {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  opacity: 0;
-                                /*   ANIMAÇÃO   */
-  transform: translateX(100vw);
-  transition:transform 0.7s ease-in-out, opacity 0.7s ease-in-out ;
+  position: absolute; /* Posiciona os itens em relação à lista */
+  inset: 0; /* Ocupa todo o espaço do contêiner pai (top, right, bottom, left: 0) */
+  display: flex; /* Usa flexbox para organizar conteúdo */
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: center; /* Centraliza verticalmente */
+  opacity: 0; /* Inicia invisível */
+  transform: translateX(100vw); /* Move o item para fora da tela à direita */
+  transition: transform 0.7s ease-in-out, opacity 0.7s ease-in-out; /* Anima a posição e opacidade em 0.7s */
 }
 
+/* Estiliza o item ativo do carrossel */
 .active {
-  opacity: 1;
-  transform: translateX(0);
+  opacity: 1; /* Torna o item visível */
+  transform: translateX(0); /* Move o item para a posição original */
 }
 
+/* Estiliza o contêiner das imagens dos produtos */
 .products-img {
-  width: 45%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  z-index: 2;
+  width: 45%; /* Ocupa 45% da largura do item */
+  height: 100%; /* Ocupa 100% da altura do item */
+  display: flex; /* Usa flexbox para centralizar a imagem */
+  align-items: center; /* Centraliza verticalmente */
+  justify-content: center; /* Centraliza horizontalmente */
+  position: relative; /* Permite posicionamento relativo */
+  z-index: 2; /* Coloca acima do fundo difuso */
 }
 
+/* Estiliza as imagens dos produtos */
 .products-img img {
-  max-width: 80%;
-  max-height: 60%;
-  filter: drop-shadow(0 0 30px rgba(0, 247, 255, 0.3));
-
-                                /*   ANIMAÇÃO   */
- transform: translateX(400px);
- opacity: 0;
- transition: transform 0.6s ease, opacity 0.6s ease;
- transition-delay: 1.2s;
+  max-width: 80%; /* Limita a largura máxima da imagem a 80% do contêiner */
+  max-height: 60%; /* Limita a altura máxima da imagem a 60% do contêiner */
+  filter: drop-shadow(0 0 30px rgba(0, 247, 255, 0.3)); /* Adiciona uma sombra ciano difusa */
+  transform: translateX(400px); /* Inicia a imagem deslocada 400px à direita */
+  opacity: 0; /* Inicia invisível */
+  transition: transform 0.6s ease, opacity 0.6s ease; /* Anima posição e opacidade em 0.6s */
+  transition-delay: 1.2s; /* Atraso de 1.2s para a animação */
 }
+
+/* Estiliza a imagem no item ativo */
 .active .products-img img {
-  transform: translateX(0);
-  opacity: 1;
+  transform: translateX(0); /* Move a imagem para a posição original */
+  opacity: 1; /* Torna a imagem visível */
 }
+
+/* Estiliza o contêiner do conteúdo textual */
 .content {
-  width: 55%;
-  padding-right: 80px;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  z-index: 2;
-  flex-direction: column;
-                                    /*   ANIMAÇÃO   */
- transform: translateX(400px);
- opacity: 0;
- transition: transform 0.6s ease, opacity 0.6s ease;
- transition-delay: 0.5s;
-}
-.active .content{
-  transform: translateX(0);
-  opacity: 1;
+  width: 55%; /* Ocupa 55% da largura do item */
+  padding-right: 80px; /* Adiciona 80px de padding à direita */
+  display: flex; /* Usa flexbox para organizar o conteúdo */
+  align-items: flex-start; /* Alinha o conteúdo ao topo */
+  justify-content: center; /* Centraliza horizontalmente */
+  z-index: 2; /* Coloca acima do fundo difuso */
+  flex-direction: column; /* Organiza o conteúdo em coluna */
+  transform: translateX(400px); /* Inicia deslocado 400px à direita */
+  opacity: 0; /* Inicia invisível */
+  transition: transform 0.6s ease, opacity 0.6s ease; /* Anima posição e opacidade em 0.6s */
+  transition-delay: 0.5s; /* Atraso de 0.5s para a animação */
 }
 
+/* Estiliza o conteúdo no item ativo */
+.active .content {
+  transform: translateX(0); /* Move o conteúdo para a posição original */
+  opacity: 1; /* Torna o conteúdo visível */
+}
+
+/* Estiliza a tag do produto */
 .product-tag {
-  font-size: 1rem;
-  text-transform: uppercase;
-  color: #00f7ff;
-  font-weight: 600;
-  letter-spacing: 2px;
-  margin-bottom: 10px;
+  font-size: 1rem; /* Define o tamanho da fonte como 16px (1rem) */
+  text-transform: uppercase; /* Converte o texto para maiúsculas */
+  color: #00f7ff; /* Define a cor como ciano */
+  font-weight: 600; /* Define a fonte como semibold */
+  letter-spacing: 2px; /* Adiciona 2px de espaçamento entre letras */
+  margin-bottom: 6px; /* Adiciona 6px de margem inferior */
 }
 
+/* Estiliza o nome do produto */
 .product-name {
-  font-size: 4rem;
-  font-family: "Orbitron", sans-serif;
-  line-height: 1.5;
-  margin-bottom: 3px;
-                                 /*   ANIMAÇÃO   */
- transform: translateX(400px);
- opacity: 0;
- transition: transform 0.6s ease, opacity 0.6s ease;
- transition-delay: 0.6s;
+  font-size: 2rem; /* Define o tamanho da fonte como 32px (2rem) */
+  font-family: "Orbitron", sans-serif; /* Usa a fonte Orbitron */
+  line-height: 1.5; /* Define a altura da linha como 1.5 vezes o tamanho da fonte */
+  margin-bottom: 3px; /* Adiciona 3px de margem inferior */
+  transform: translateX(400px); /* Inicia deslocado 400px à direita */
+  opacity: 0; /* Inicia invisível */
+  transition: transform 0.6s ease, opacity 0.6s ease; /* Anima posição e opacidade em 0.6s */
+  transition-delay: 0.6s; /* Atraso de 0.6s para a animação */
 }
+
+/* Estiliza o nome do produto no item ativo */
 .active .product-name {
-  transform: translateX(0);
-  opacity: 1;
+  transform: translateX(0); /* Move para a posição original */
+  opacity: 1; /* Torna visível */
 }
 
-
+/* Estiliza a descrição do produto */
 .descripition {
-  font-size: 1.1rem;
-  color: #c6c6d7;
-  line-height: 1.6;
-  margin-bottom: 30px;
-  max-width: 600px;
-                                   /*   ANIMAÇÃO   */
- transform: translateX(400px);
- opacity: 0;
- transition: transform 0.6s ease, opacity 0.6s ease;
- transition-delay: 0.7s;
-}
-.active .descripition{
-  transform: translateX(0);
-  opacity: 1;
+  font-size: 1.1rem; /* Define o tamanho da fonte como 17.6px (1.1rem) */
+  color: #c6c6d7; /* Define a cor como cinza claro */
+  line-height: 1.6; /* Define a altura da linha como 1.6 vezes o tamanho da fonte */
+  margin-bottom: 30px; /* Adiciona 30px de margem inferior */
+  max-width: 600px; /* Limita a largura máxima a 600px */
+  transform: translateX(400px); /* Inicia deslocado 400px à direita */
+  opacity: 0; /* Inicia invisível */
+  transition: transform 0.6s ease, opacity 0.6s ease; /* Anima posição e opacidade em 0.6s */
+  transition-delay: 0.7s; /* Atraso de 0.7s para a animação */
 }
 
+/* Estiliza a descrição no item ativo */
+.active .descripition {
+  transform: translateX(0); /* Move para a posição original */
+  opacity: 1; /* Torna visível */
+}
+
+/* Estiliza o botão */
 .btn {
-  padding: 12px 16px;
-  background: linear-gradient(90deg, #00f7ff, #0066ff);
-  border-radius: 25px;
-  color: #000000b9;
-  border: none;
-  font-weight: 600;
-  font-size: 1rem;
-  cursor: pointer;
-                                    /*   ANIMAÇÃO   */
- transform: translateX(400px);
- opacity: 0;
- transition: transform 0.6s ease, opacity 0.6s ease;
- transition-delay: 0.8s;
-}
-.active .btn{
-  transform: translateX(0);
-  opacity: 1;
+  padding: 12px 16px; /* Adiciona 12px de padding vertical e 16px horizontal */
+  background: linear-gradient(90deg, #00f7ff, #0066ff); /* Aplica um gradiente horizontal de ciano para azul */
+  border-radius: 25px; /* Arredonda as bordas */
+  color: #000000b9; /* Define a cor do texto como preto com leve transparência */
+  border: none; /* Remove a borda padrão */
+  font-weight: 600; /* Define a fonte como semibold */
+  font-size: 1rem; /* Define o tamanho da fonte como 16px */
+  cursor: pointer; /* Define o cursor como ponteiro */
+  transform: translateX(400px); /* Inicia deslocado 400px à direita */
+  opacity: 0; /* Inicia invisível */
+  transition: transform 0.6s ease, opacity 0.6s ease; /* Anima posição e opacidade em 0.6s */
+  transition-delay: 0.8s; /* Atraso de 0.8s para a animação */
 }
 
+/* Estiliza o botão no item ativo */
+.active .btn {
+  transform: translateX(0); /* Move para a posição original */
+  opacity: 1; /* Torna visível */
+}
+
+/* Reduz a opacidade do botão no hover */
 .btn:hover {
-  opacity: 0.8;
+  opacity: 0.8; /* Define 80% de opacidade */
 }
 
+/* Reduz a opacidade do botão ao clicar */
 .btn:active {
-  opacity: 0.4;
+  opacity: 0.4; /* Define 40% de opacidade */
 }
 
+/* Estiliza as setas de navegação do carrossel */
 .arrows {
-  position: absolute;
-  width: 90%;
-  display: flex;
-  justify-content: space-between;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 5;
+  position: absolute; /* Posiciona em relação ao contêiner pai */
+  width: 90%; /* Ocupa 90% da largura */
+  display: flex; /* Usa flexbox para organizar as setas */
+  justify-content: space-between; /* Espaça as setas nas extremidades */
+  top: 50%; /* Centraliza verticalmente */
+  left: 50%; /* Centraliza horizontalmente */
+  transform: translate(-50%, -50%); /* Ajusta a posição para centralizar perfeitamente */
+  z-index: 5; /* Coloca acima de outros elementos */
 }
 
+/* Estiliza os botões das setas */
 .arrow-btn {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  cursor: pointer;
-  background-color: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(0, 247, 255, 0.3);
+  width: 50px; /* Define a largura como 50px */
+  height: 50px; /* Define a altura como 50px */
+  border-radius: 50%; /* Transforma em círculo */
+  cursor: pointer; /* Define o cursor como ponteiro */
+  background-color: rgba(255, 255, 255, 0.1); /* Define um fundo branco com 10% de opacidade */
+  border: 1px solid rgba(0, 247, 255, 0.3); /* Adiciona uma borda ciano com 30% de opacidade */
 }
 
+/* Estiliza as setas no hover */
 .arrow-btn:hover {
-  background-color: rgba(0, 247, 255, 0.3);
-  border-color: #00f7ff;
+  background-color: rgba(0, 247, 255, 0.3); /* Muda o fundo para ciano com 30% de opacidade */
+  border-color: #00f7ff; /* Muda a borda para ciano sólido */
 }
 
+/* Estiliza os indicadores do carrossel */
 .indicators {
-  position: absolute;
-  bottom: 40px;
-  left: 50%;
-  transform: translate(-50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 15px;
-  z-index: 5;
+  position: absolute; /* Posiciona em relação ao contêiner pai */
+  bottom: 40px; /* Posiciona 40px acima da borda inferior */
 }
 
-.numbers {
-  font-family: "Orbitron", sans-serif;
-  font-size: 3rem;
-  font-weight: 800;
-  color: rgba(255, 255, 255, 0.1);
+/* ////////  RESPONSIVIDADE   */
+/* Ajusta o layout para telas até 800px (celulares e tablets pequenos) */
+@media (max-width: 800px) {
+  header {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  header nav a {
+    font-size: 1rem;
+  }
+  .logo {
+    font-size: 1.5rem;
+    margin-bottom: 40px;
+  }
+  .item {
+    width: 90%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+  }
+  .item .active {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+  }
+  .products-img {
+    margin-top: 90px;
+    margin-bottom: 1px;
+    width: 90%;
+    height: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+  }
+  .list .content .descripition {
+    font-size: 10px;
+    line-height: normal;
+    width: 160px;
+    height: 100px;
+    margin-bottom: 10px;
+    text-align: left;
+  }
+  .list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 80%;
+  }
+  .arrows {
+    display: none;
+  }
+  .btn {
+    font-size: 0.5rem;
+    padding: 5px;
+    margin-top: 10px;
+  }
+  .dot {
+    width: 10px;
+    height: 10px;
+  }
+  .dots .active {
+    width: 10px;
+    height: 10px;
+  }
+  .numbers {
+    font-size: 1rem;
+  }
+  .numbers .active {
+    font-size: 1rem;
+  }
+  .product-tag {
+    font-size: 0.5rem;
+  }
+  .product-name {
+    font-size: 12px;
+  }
+  .circle:nth-child(1) {
+    width: 200px;
+    height: 200px;
+    top: -2%;
+    left: -1%;
+  }
 }
 
-.dots {
-  display: flex;
-  gap: 10px;
+/* ////////  RESPONSIVIDADE   */
+/* Ajusta para telas até 950px em orientação landscape(paisagem) (ex.: tablets) */
+@media (max-width: 950px) and (orientation: landscape) {
+  .indicators {
+    display: none;
+  }
+  .logo {
+    display: none;
+  }
+  header {
+    padding: 20px;
+    width: 80vw;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .list .content .descripition {
+    font-size: 9px;
+    line-height: normal;
+    width: 200px;
+    height: 100px;
+  }
 }
 
-.dot {
-  width: 40px;
-  height: 4px;
-  background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 2px;
-}
-
-.dot.active {
-  background-color: #00f7ff;
-  box-shadow: 0 0 10px rgba(0, 247, 255, 0.5);
-}
-
-.tech-circle {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-}
-
-.circle {
-  position: absolute;
-  border-radius: 50%;
-  border: 1px solid rgba(0, 247, 255, 0.1);
-}
-.circle:nth-child(1) {
-  width: 200px;
-  height: 200px;
-  top: 10%;
-  left: 10%;
-}
-.circle:nth-child(2) {
-  width: 300px;
-  height: 300px;
-  top: 60%;
-  left: 80%;
-}
-.circle:nth-child(3) {
-  width: 130px;
-  height: 130px;
-  top: 75%;
-  left: 20%;
-}
-.circle:nth-child(4) {
-  width: 120px;
-  height: 120px;
-  top: 20%;
-  left: 70%;
+/* ////////  RESPONSIVIDADE   */
+/* Ajusta para telas até 700px em orientação landscape(paisagem) (ex.: celulares) */
+@media (max-width: 700px) and (orientation: landscape) {
+  .indicators {
+    display: none;
+  }
+  .list {
+    display: flex;
+    flex-direction: row;
+  }
+  .item {
+    width: 100%;
+    height: 80%;
+    display: flex;
+    flex-direction: row;
+  }
+  .item active {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+  }
+  .logo {
+    display: none;
+  }
+  .content {
+    padding-right: 0;
+    width: 100%;
+  }
+  .list .content .descripition {
+    font-size: 9px;
+    line-height: normal;
+    width: 200px;
+    height: 80px;
+  }
+  .products-img {
+    width: 30%;
+  }
 }
